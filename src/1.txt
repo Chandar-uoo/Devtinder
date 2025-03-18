@@ -1,0 +1,10 @@
+console.log("hello world");
+//        carat ^ why  beacuse for auto update
+// dependeicies
+// pack.json vs lock .passage  node modules
+// version - 4.19.2 // 2 patch 19 minor // 4 major
+
+// always a project start  from 1.0.0
+// mjaor update is headache so you can update minor and patch update
+// home work ~ is what
+//  npm start npm run dev
