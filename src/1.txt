@@ -8,3 +8,47 @@ console.log("hello world");
 // mjaor update is headache so you can update minor and patch update
 // home work ~ is what
 //  npm start npm run dev
+
+// jeevitha
+  "password":"jeeevithaChandru@123",
+  "email":"jeevithachandrubabu@12gmail.com",
+// gopika
+  "password":"gopikaaChandru@123",
+  "email":"gopikahandrubabu@12gmail.com",
+
+// kavi
+
+{
+  "firstName": "kavi",
+  "lastName": "chandru",
+  "password":"kaviChandru@123",
+  "email":"kavikahandrubabu@12gmail.com",
+  "age":20,
+  "gender":"female",
+  "about":"mallu",
+  "skills":["lovey cook","drawing"]
+}
+// hey keep an eye on rest passage
+// some login 
+// some prev videos
+
+
+// old {
+  "password":"kaviChandru@123",
+  "email":"kavikahandrubabu@12gmail.com"
+}
+// new 
+ "newpassword":"HELLOchandru@123"
+
+ priya
+ // new
+ {
+  "firstName": "priya",
+  "lastName": "chandru",
+  "password":"priyaChandru@123",
+  "email":"priyaChaahandrubabu@12gmail.com",
+  "age":20,
+  "gender":"female",
+  "about":"mallu",
+  "skills":["lovey cook","drawing"]
+}

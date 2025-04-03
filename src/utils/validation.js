@@ -13,6 +13,23 @@ const validations = (req)=>{
     }
 
 }
+const onupdatecheck = (req)=>{
+    // checking the data req is you alowed 
+    const allowed = ["firstName","lastName","age","gender","about","photo","skills"];
+    const iseditallowed = Object.keys(req.body).every(feild => allowed.includes(feild));
+    
+    // if not 
+    if(!iseditallowed){
+        throw new Error ("details are not valid")
+    }
+    if("photo" in req.body && req.body.photo === "string" && !validator.isURL(req.body.photo)){
+        throw new Error ("photo URl are not valid")
+    }
+    else {
+        return true;
+    }
+} 
 module.exports = {
     validations,
+    onupdatecheck,
 }
