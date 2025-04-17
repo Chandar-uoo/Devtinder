@@ -3,6 +3,7 @@ const userRouter = express.Router();
 const {userauth} = require("../middleware/auth")
 const connectionrequest = require("../models/connectionRequestmodel")
 const User = require("../models/user")
+const USER_SAFE_DATA = "firstName lastName photoUrl age gender about skills";
 
 
 // recived for you
@@ -12,7 +13,7 @@ userRouter.get("/user/request/receveid",userauth,async (req,res) => {
        const findrequest =  await connectionrequest.find({
         toUserId:curruser._id,
         status : "Interested"
-       }).populate("fromUserId",["firstName","lastName"]);
+       }).populate("fromUserId",USER_SAFE_DATA );
        res.json({
         message : "received request",
         pending : findrequest
@@ -32,7 +33,7 @@ userRouter.get("/user/connection",userauth ,async (req,res) => {
                 {toUserId :loggeduser,status :"accepted"},
                 {fromUserId :loggeduser,status :"accepted"}
             ]
-        }).populate("fromUserId",["firstName","lastName"]).populate("toUserId",["firstName","lastName"]);
+        }).populate("fromUserId",USER_SAFE_DATA).populate("toUserId",USER_SAFE_DATA);
             // yhis remove for unnecessary detail ike your id 
           const data = findconnection.map((row)=>{
             if(row.fromUserId.toString() == loggeduser){
@@ -75,8 +76,8 @@ userRouter.get("/feed",userauth,async (req,res) => {
         },
         {_id:{$ne : loggeduser}}
     ]
-    }).select("firstName lastName age gender about photo")
-    res.send(user).skip(skip).limit(limit)
+    }).select("firstName lastName age gender about photo").skip(skip).limit(limit)
+    res.send(user);
     } catch (err) {
         res.status(404).send({message :err.message})
     }

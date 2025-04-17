@@ -6,8 +6,7 @@ const validator = require("validator")
 const bcrypt = require("bcrypt")
 // universal check
 
-
-profileRouter.get("/profile/veiw", userauth, async (req, res) => {
+profileRouter.get("/profile", userauth, async (req, res) => {
    // userauth middleware say when route recive and next handle middleware handle it if valid pass if not return
    try {
       const user = req.user;// recived from auth middleware
@@ -30,6 +29,7 @@ profileRouter.patch("/profile/update", userauth, async (req, res) => {
       // update
       const loggeduser = req.user;
       Object.keys(req.body).forEach((key) => loggeduser[key] = req.body[key])
+      await loggeduser.save();
       // res send
       res.json({
          success: true,
