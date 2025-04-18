@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 import {addUser} from "../Store/Slices/Userslice"
+import { BaseURL } from '../utils/Constants';
 const EditProfile = () => {
   const user = useSelector((state) => state.User);
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ const EditProfile = () => {
   const saveProfile = async () => {
     try {
       seterror("");
-      const res = await axios.patch("http://localhost:5000/profile/update",{firstName,lastName,photo,age,gender,about,skills},{withCredentials:true});
+      const res = await axios.patch(BaseURL+"/profile/update",{firstName,lastName,photo,age,gender,about,skills},{withCredentials:true});
       console.log(res.data)
       dispatch(addUser(res.data));
     } catch (err) {

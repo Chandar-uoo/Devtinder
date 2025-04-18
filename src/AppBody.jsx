@@ -7,6 +7,7 @@ import { addUser } from './Store/Slices/Userslice'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { BaseURL } from './utils/Constants'
 const AppBody = () => {
   const user = useSelector((state)=>state.User)
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const AppBody = () => {
   // token with relod err prevent
   const fetechuser = async () => {
     try {
-      let res = await axios.get("http://localhost:5000/profile",{
+      let res = await axios.get(BaseURL+"/profile",{
         withCredentials:true,
       });
       dispatch(addUser(res.data))
